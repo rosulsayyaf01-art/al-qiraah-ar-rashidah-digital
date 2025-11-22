@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Al-Qira'ah Ar-Rasyidah - Sastra Arab Klasik & Terjemahan</title>
+    <meta name="description" content="Kumpulan kisah hikmah sastra Arab klasik (Al-Qira'ah Ar-Rasyidah) lengkap dengan teks gundul dan terjemahan Bahasa Indonesia untuk pelajar bahasa Arab.">
+    <meta property="og:title" content="Al-Qira'ah Ar-Rasyidah Digital">
+    <meta property="og:description" content="Bacaan Sastra Arab Klasik yang Membimbing. Lengkap dengan terjemahan.">
+    <meta property="og:image" content="https://ui-avatars.com/api/?name=Al+Qiraah&background=1a3c34&color=c59d5f&size=512"> <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'paper-50': '#fdfbf7',
+                        'paper-100': '#f2eee2',
+                        'paper-200': '#e6dfc8',
+                        'gold-accent': '#c59d5f',
+                        'gold-dark': '#a67c42',
+                        'ink-green': '#1a3c34',
+                        'ink-light': '#2c554b',
+                        'charcoal': '#374151'
+                    },
+                    fontFamily: {
+                        'sans': ['Plus Jakarta Sans', 'sans-serif'],
+                        'arabic-title': ['Amiri', 'serif'],
+                        'arabic-body': ['Scheherazade New', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f2eee2; }
+        ::-webkit-scrollbar-thumb { background: #c59d5f; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a67c42; }
+
+        /* Islamic Pattern Background */
+        .islamic-pattern {
+            background-color: #fdfbf7;
+            background-image: radial-gradient(#c59d5f 0.5px, transparent 0.5px), radial-gradient(#c59d5f 0.5px, #fdfbf7 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.4;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(253, 251, 247, 0.90);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Loader */
+        #loader {
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-paper-50 text-charcoal font-sans antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-gold-accent selection:text-white">
+    
+    <div id="loader" class="fixed inset-0 z-[9999] bg-paper-50 flex items-center justify-center">
+        <div class="flex flex-col items-center gap-4">
+            <div class="w-12 h-12 border-4 border-paper-200 border-t-ink-green rounded-full animate-spin"></div>
+            <p class="text-ink-green font-arabic-title text-lg animate-pulse">جاري التحميل...</p>
+        </div>
+    </div>
+
+    <div class="fixed inset-0 islamic-pattern pointer-events-none z-0"></div>
+
+    <nav class="glass fixed w-full z-50 top-0 border-b border-paper-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-4 group">
+                    <div class="w-10 h-10 bg-ink-green rounded-lg rotate-3 flex items-center justify-center shadow-lg group-hover:rotate-0 transition-transform duration-300">
+                        <span class="text-paper-50 font-arabic-title text-2xl pt-2 transform -rotate-3 group-hover:rotate-0 transition-transform">ر</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-xl font-bold text-ink-green tracking-tight leading-none">Al-Qira'ah</h1>
+                        <span class="text-[10px] text-gold-accent uppercase tracking-[0.2em] font-semibold">Ar-Rasyidah</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-6 text-sm font-medium text-ink-light">
+                    <a href="https://github.com/" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-gold-accent transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-36 pb-12 px-4 text-center max-w-4xl mx-auto z-10 animate-fade-in">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-accent/10 border border-gold-accent/20 text-gold-dark text-xs font-bold mb-6 tracking-widest shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-gold-accent animate-pulse"></span>
+            JILID 1
+        </div>
+        <h2 class="text-5xl md:text-7xl font-bold text-ink-green mb-4 leading-tight font-arabic-title drop-shadow-sm">
+            القراءة الرشيدة
+        </h2>
+        <p class="text-xl md:text-2xl text-ink-light/70 font-arabic-body mb-8">
+            (Bacaan yang Membimbing)
+        </p>
+        <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Koleksi digital kisah penuh hikmah dengan tipografi klasik tanpa harakat untuk melatih intuisi bahasa (Dzauq), lengkap dengan terjemahan.
+        </p>
+
+        <div class="mt-10 max-w-2xl mx-auto bg-white p-2 rounded-2xl shadow-lg border border-paper-200 flex flex-col md:flex-row gap-2">
+            <div class="relative flex-grow">
+                <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" id="search-input" placeholder="Cari judul atau isi cerita..." class="w-full pl-10 pr-4 py-3 rounded-xl border-none focus:ring-2 focus:ring-gold-accent/50 bg-transparent placeholder-gray-400 text-sm outline-none transition-all">
+            </div>
+            <div class="flex gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-hide" id="filter-container">
+                </div>
+        </div>
+    </header>
+
+    <main class="flex-grow px-4 sm:px-6 lg:px-8 pb-24 max-w-7xl mx-auto w-full z-10 relative min-h-[400px]">
+        <div id="stories-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-slide-up">
+            </div>
+        
+        <div id="empty-state" class="hidden flex-col items-center justify-center py-20 text-center">
+            <div class="w-16 h-16 bg-paper-200 rounded-full flex items-center justify-center mb-4 text-2xl">🔍</div>
+            <h3 class="text-lg font-bold text-ink-green">Tidak ditemukan</h3>
+            <p class="text-gray-500">Coba kata kunci lain atau ganti filter.</p>
+        </div>
+    </main>
+
+    <footer class="bg-white/80 border-t border-paper-200 py-12 z-10 relative backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="mb-4 font-arabic-title text-3xl text-ink-green">العلم نور</div>
+            <p class="text-sm text-gray-500 mb-4">Didesain dengan ❤️ untuk Penuntut Ilmu</p>
+            <div class="text-xs text-gray-400">
+                &copy; 2025 Al-Qira'ah Digital Project
+            </div>
+        </div>
+    </footer>
+
+    <div id="reader-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-ink-green/60 backdrop-blur-sm transition-opacity opacity-0 duration-300 ease-out" id="modal-backdrop"></div>
+
+        <div class="absolute inset-0 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 sm:p-6 text-center sm:items-center">
+                
+                <div class="relative transform overflow-hidden rounded-2xl bg-paper-50 text-left shadow-2xl transition-all opacity-0 scale-95 duration-300 ease-out sm:w-full sm:max-w-3xl border border-paper-200 flex flex-col max-h-[90vh]" id="modal-panel">
+                    
+                    <div class="h-1.5 bg-gradient-to-r from-ink-green via-gold-accent to-ink-green flex-shrink-0"></div>
+
+                    <div class="bg-white/95 px-6 py-4 border-b border-paper-100 flex justify-between items-center sticky top-0 z-10 backdrop-blur flex-shrink-0">
+                        <div class="pr-4">
+                            <h3 class="text-lg font-bold text-ink-green font-arabic-title truncate" id="modal-story-title-header">Judul</h3>
+                            <p class="text-[10px] text-gold-dark uppercase tracking-wider font-bold" id="modal-story-subtitle">Kategori</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                             <button onclick="copyArabicText()" class="p-2 rounded-full text-gray-400 hover:text-gold-accent hover:bg-paper-100 transition-all" title="Salin Teks Arab">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </button>
+                            <button type="button" class="p-2 rounded-full text-gray-400 hover:text-red-500 hover:bg-red-50 transition-all" onclick="closeModal()">
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 overflow-y-auto p-6 sm:p-10 bg-paper-50" id="modal-scroll-area">
+                        <div class="space-y-8 pb-8">
+                            <div class="space-y-6">
+                                <h2 id="modal-arabic-title" class="text-4xl md:text-5xl font-bold text-ink-green font-arabic-title text-center pt-2"></h2>
+                                
+                                <div class="relative bg-white p-6 sm:p-8 rounded-xl border border-paper-200 shadow-sm">
+                                    <div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-gold-accent/40 rounded-tl-lg m-1.5"></div>
+                                    <div class="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-gold-accent/40 rounded-tr-lg m-1.5"></div>
+                                    <div class="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-gold-accent/40 rounded-bl-lg m-1.5"></div>
+                                    <div class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-gold-accent/40 rounded-br-lg m-1.5"></div>
+                                    
+                                    <p id="modal-arabic-text" class="text-2xl md:text-3xl leading-[2.4] text-right font-arabic-body text-charcoal whitespace-pre-line" dir="rtl"></p>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center">
+                                <button onclick="toggleTranslation()" class="group flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-paper-200 hover:border-gold-accent shadow-sm transition-all">
+                                    <div class="relative w-10 h-5 bg-gray-200 rounded-full transition-colors group-hover:bg-gold-accent/20" id="toggle-bg">
+                                        <div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full shadow transform transition-transform duration-300" id="toggle-dot"></div>
+                                    </div>
+                                    <span class="text-sm font-medium text-gray-600 group-hover:text-ink-green">Tampilkan Terjemahan</span>
+                                </button>
+                            </div>
+
+                            <div id="translation-container" class="hidden opacity-0 transition-all duration-500 transform translate-y-4">
+                                <div class="relative p-6 bg-ink-green/5 rounded-xl border-l-4 border-ink-green">
+                                    <h4 class="text-xs font-bold text-ink-green uppercase tracking-widest mb-3 flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-gold-accent"></span>
+                                        Terjemahan Indonesia
+                                    </h4>
+                                    <div id="modal-indo-text" class="text-gray-700 leading-relaxed text-lg font-light whitespace-pre-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-charcoal text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium opacity-0 pointer-events-none transition-opacity duration-300 z-[200]">
+        Teks berhasil disalin!
+    </div>
+
+    <script>
+        // --- Data Management ---
+        // Untuk development yang lebih bersih, data bisa dipisah ke file .json nanti
+        const stories = [
+             {
+                id: 1,
+                title: "Bunga Mawar",
+                arabicTitle: "الزهرة",
+                category: "Alam",
+                arabic: "علي له أخ مسافر بعث له شجرة ورد ناشفة، فأخذ علي يسقيها كل يوم حتى اخضر قشرها ونبت فيها ورق صغير أخضر، ففرح علي كثيراً بحياتها ووضعها في الشمس. وبعد ذلك طلعت فيها وردة حمراء ورقها البراني أخضر. وبعد يوم تفتحت الوردة وطلع جنبها ورد غيرها صغيراً، فأخذها علي ليريها أبوه فأعجبته وقال: يا علي هذه الشجرة لابد أن تكبر ويطلع فيها ورد كثير إذا سقيتها كل يوم في الميعاد.",
+                indonesian: "Ali memiliki seorang saudara yang sedang bepergian jauh yang mengiriminya sebatang pohon mawar yang kering. Ali pun mulai menyiraminya setiap hari hingga kulit batangnya menghijau dan tumbuhlah daun-daun kecil berwarna hijau padanya. Ali sangat gembira dengan kehidupannya (pohon itu) dan menempatkannya di bawah sinar matahari. Setelah itu, muncullah bunga mawar merah yang kelopak luarnya berwarna hijau. Sehari kemudian, bunga mawar itu mekar dan tumbuh di sampingnya bunga-bunga kecil lainnya. Ali pun membawanya untuk diperlihatkan kepada ayahnya. Ayahnya kagum dan berkata: 'Wahai Ali, pohon ini pasti akan membesar dan menghasilkan banyak bunga jika engkau menyiraminya setiap hari pada waktunya.'"
+            },
+            {
+                id: 2,
+                title: "Anjingku",
+                arabicTitle: "كلبي",
+                category: "Hewan",
+                arabic: "هل رأيت كلبي؟ هو لطيف وجميل ولونه أبيض وشعره طويل وأرجله طويلة ورأسه كبير. وهو يمشي ورائي دائماً وعندما أقعد يلعب معي. وإذا جاع وضع يده على رجلي وفتح فمه الكبير، فأجيء له بلقمة خبز وكوب لبن فيهز ذيله ويأكل. وإذا رأى أكلاً غيره لا يقربه لأنه تعود أن لا يأكل إلا من يدي. وهو صاحب قطتنا الكبيرة يلعب معها وتلعب معه مع أن الكلاب والقطط أعداء، وهو يرافق أبي إذا خرج للصيد لأنه كلب صيد.",
+                indonesian: "Apakah kamu sudah melihat anjingku? Dia manis dan cantik, warnanya putih, bulunya panjang, kakinya jenjang, dan kepalanya besar. Dia selalu berjalan di belakangku dan ketika aku duduk, dia bermain denganku. Jika dia lapar, dia meletakkan kaki depannya di atas kakiku dan membuka mulutnya yang besar, maka aku membawakannya sepotong roti dan secangkir susu, lalu dia mengibaskan ekornya dan makan. Jika dia melihat makanan lain, dia tidak mendekatinya karena dia terbiasa tidak makan kecuali dari tanganku. Dia berteman dengan kucing besar kami, dia bermain dengannya dan kucing itu bermain dengannya meskipun anjing dan kucing biasanya bermusuhan. Dia menemani ayahku jika pergi berburu karena dia adalah anjing pemburu."
+            },
+            {
+                id: 3,
+                title: "Sapi yang Bermanfaat",
+                arabicTitle: "الثور النافع",
+                category: "Hewan",
+                arabic: "أرى ثورين في هذا الرسم. الثور في بلادنا يدور في الساقية التي ترفع الماء من الترع والآبار لإرواء الزرع، ويدور كذلك بالنورج لدرس الغلة وفي الطاحون لطحنها، وكذلك تجر عجلات الحمل الثقيلة فهو نافع جداً. ولا نركبه كما نركب الخيل والحمير لأن سلسلة ظهره بارزة فلا نستريح في الجلوس إذا ركبناه.",
+                indonesian: "Aku melihat dua ekor sapi jantan dalam gambar ini. Sapi jantan di negeri kita berputar di alat penyiram (saqiyah) yang mengangkat air dari kanal dan sumur untuk mengairi tanaman. Ia juga berputar dengan alat perontok (nouraj) untuk merontokkan hasil panen dan di penggilingan untuk menggilingnya. Ia juga menarik gerobak muatan berat, jadi ia sangat bermanfaat. Kita tidak menungganginya seperti kita menunggangi kuda dan keledai karena tulang punggungnya menonjol, sehingga kita tidak merasa nyaman duduk jika menungganginya."
+            },
+            {
+                id: 4,
+                title: "Kebakaran",
+                arabicTitle: "الحريق",
+                category: "Kejadian",
+                arabic: "كان محمد نائماً في فراشه والساعة عشر والليل كله ظلام وبرد والدنيا ساكنة ليس فيها إلا صوت الخفير في الشارع. ثم سمع محمد صراخاً في الخارج فقام من فراشه وفتح الشباك وأطل منه فرأى حريقاً في بيت جاره وهو بيت صاحبه إبراهيم الذي يلعب معه كل يوم. فنزل يجري لينذره فما وجده، فدخل البيت في وسط النار ووصل إلى غرفة إبراهيم وناداه، فقام إبراهيم مرعوباً فأخذ محمد بيده ونزل به إلى الشارع، فرآه جميع الواقفين وفرحوا به ومدحوه لأنه خلص صاحبه.",
+                indonesian: "Muhammad sedang tidur di kasurnya pada pukul sepuluh, malam itu gelap gulita dan dingin, dunia sunyi senyap kecuali suara penjaga malam di jalan. Kemudian Muhammad mendengar teriakan di luar, dia pun bangun dari kasurnya, membuka jendela dan menengok keluar. Dia melihat kebakaran di rumah tetangganya, yaitu rumah temannya Ibrahim yang bermain bersamanya setiap hari. Dia turun berlari untuk memperingatkannya tetapi tidak menemukannya. Dia pun masuk ke dalam rumah di tengah kobaran api dan sampai ke kamar Ibrahim lalu memanggilnya. Ibrahim bangun dengan ketakutan, lalu Muhammad memegang tangannya dan membawanya turun ke jalan. Semua orang yang berdiri di situ melihatnya, mereka bergembira karenanya dan memujinya karena dia telah menyelamatkan temannya."
+            },
+            {
+                id: 5,
+                title: "Surat Menyurat",
+                arabicTitle: "الرسالة",
+                category: "Adab",
+                arabic: "أحمد: السلام عليكم يا يوسف كيف أنت وماذا تعمل الآن؟\nيوسف: وعليكم السلام ورحمة الله وبركاته، أنا أكتب رسالة إلى أخي عزيز.\nأحمد: أنت تعرف كتابة الكتب وأنت صغير بهذه السن؟ إنك لذكي.\nيوسف: تعلمت ذا في المدرسة والكتابة سهلة ولا أكتب كلاماً كثيراً. خذ الرسالة واقرأها.\nأحمد: أشكرك، استمع لأقرأها عليك: \"أخي وعزيزي عزيز، ما رأيتك من زمان فمتى تحضر؟ أنت غبت كثيراً وأنا مشتاق إليك فتعال على عجل. أبي وأمي بخير ويسلمان عليك وأرجو أن تكون أنت بخير\".\n\nأخوك ومحبك يوسف.",
+                indonesian: "Ahmad: Assalamualaikum wahai Yusuf, bagaimana kabarmu dan apa yang sedang kau kerjakan sekarang?\nYusuf: Waalaikumsalam warahmatullahi wabarakatuh, aku sedang menulis surat untuk saudaraku, Aziz.\nAhmad: Kamu bisa menulis surat padahal kamu masih kecil begini? Sungguh kamu cerdas.\nYusuf: Aku mempelajarinya di sekolah. Menulis itu mudah dan aku tidak menulis terlalu banyak kata. Ambillah surat ini dan bacalah.\nAhmad: Terima kasih, dengarkan aku membacakannya untukmu: \"Saudaraku dan kekasihku Aziz, aku sudah lama tidak melihatmu, kapan engkau datang? Engkau sudah lama pergi dan aku merindukanmu, maka datanglah segera. Ayah dan Ibu baik-baik saja dan mereka titip salam untukmu, dan aku harap engkau pun baik-baik saja.\"\n\nSaudaramu yang mencintaimu, Yusuf."
+            },
+            {
+                id: 6,
+                title: "Jam Saku",
+                arabicTitle: "الساعة",
+                category: "Benda",
+                arabic: "اشترى لي أبي ساعة من يومين فأخذتها في يدي ووضعتها على أذني وسمعت صوتها وهي تدق \"طق طق\" ثم وضعتها في جيبي خوفاً عليها. ولكن أبي لم يرض بذلك بل أخذها مني وفتحها من كل جهة لأراها، وما كنت رأيت داخلها من قبل. وهي موضوعة في ظرف من الفضة أبيض وعلى وجهها غطاء من الزجاج يظهر تحته الميناء مقسماً إلى 12 ساعة و60 دقيقة، وفيه عقربان يدوران واحد كبير للدقائق والثاني صغير للساعات. وفي يدها مسمار ندوره لملئها وندوره أيضاً لضبطها مع الضغط على مسمار صغير بجانبه. وحول المسمار الأول حلقة صغيرة للقبض عليها أو تعليقها في سلسلة.",
+                indonesian: "Ayah membelikan aku sebuah jam dua hari yang lalu. Aku mengambilnya di tanganku dan menempelkannya di telingaku, aku mendengar suaranya berdetak \"tik tak\" kemudian aku menaruhnya di sakuku karena takut rusak. Tetapi ayah tidak setuju dengan itu, bahkan beliau mengambilnya dariku dan membukanya dari segala sisi agar aku melihatnya, padahal aku belum pernah melihat bagian dalamnya sebelumnya. Jam itu diletakkan dalam wadah perak berwarna putih, dan di wajahnya ada penutup kaca yang di bawahnya terlihat pelat jam yang terbagi menjadi 12 jam dan 60 menit. Di dalamnya ada dua jarum yang berputar, satu besar untuk menit dan yang kedua kecil untuk jam. Di batangnya ada sekrup yang kita putar untuk mengisi dayanya dan kita putar juga untuk mengaturnya sambil menekan tombol kecil di sampingnya. Di sekitar sekrup pertama ada cincin kecil untuk memegangnya atau menggantungnya pada rantai."
+            },
+            {
+                id: 7,
+                title: "Waktu",
+                arabicTitle: "الزمن",
+                category: "Pengetahuan",
+                arabic: "أنتم تأتون المدرسة كل يوم إلا يوم الجمعة وتدخلون المكتب لتتلقوا دروسكم، فيبتدئ الدرس الأول والساعة ثمان، وبعد أن تأخذوا درسين تخرجون للرياضة ثم تعودون للدرس الثالث والساعة 10، فكل هذا الوقت ساعتان. وفي الليل والنهار 24 ساعة وهي يوم كامل. وفي الأسبوع سبعة أيام وهي السبت والأحد والاثنين والثلاثاء والأربعاء والخميس والجمعة. ويوم الجمعة يوم عطلة لدواوين الحكومة والمدارس، ويوم الأحد يوم عطلة للمصارف والمحال التجارية الكبيرة.",
+                indonesian: "Kalian datang ke sekolah setiap hari kecuali hari Jumat dan masuk ke kelas untuk menerima pelajaran kalian. Pelajaran pertama dimulai pukul delapan, dan setelah kalian mengambil dua pelajaran, kalian keluar untuk berolahraga, kemudian kembali untuk pelajaran ketiga pada pukul 10, jadi seluruh waktu ini adalah dua jam. Dalam siang dan malam ada 24 jam, itu adalah satu hari penuh. Dalam seminggu ada tujuh hari, yaitu Sabtu, Minggu, Senin, Selasa, Rabu, Kamis, dan Jumat. Hari Jumat adalah hari libur bagi kantor pemerintahan dan sekolah, sedangkan hari Minggu adalah hari libur bagi bank dan toko-toko besar."
+            },
+            {
+                id: 8,
+                title: "Hujan",
+                arabicTitle: "المطر",
+                category: "Alam",
+                arabic: "في السماء سحاب كثير وقد زاد شيئاً فشيئاً حتى صار الآن أسود جداً وحجب الشمس. \"اسمع\" هذا صوت الرعد. ولا بد أن يأتي بعده المطر حالاً. انظر البرق يلمع في السماء وينور الأرض. هذه قطرة مطر على يدي، تعال نقف في هذا الباب لنرى المطر ينزل على الأرض ونحن على بعد. يجري الناس إلى هنا وإلى هناك وقد نشروا المظلات خوفاً من البلل. والماء ينزل من المزاريب فيحفر الأرض ويكون بركاً، وينشأ عنه وحل كثير، ربما زلق منه الإنسان. المطر انقطع الآن فهيا بنا إلى شاطئ البحر لنرى الشمس تغرب في المغرب.",
+                indonesian: "Di langit ada banyak awan dan bertambah sedikit demi sedikit hingga sekarang menjadi sangat hitam dan menutupi matahari. \"Dengar!\" ini suara guntur. Dan pasti hujan akan segera turun setelahnya. Lihatlah kilat menyambar di langit dan menerangi bumi. Ini tetesan hujan di tanganku, mari kita berdiri di pintu ini untuk melihat hujan turun ke tanah sementara kita berada di kejauhan. Orang-orang berlarian ke sana kemari dan mereka telah mengembangkan payung karena takut basah. Air turun dari talang air lalu melubangi tanah dan membentuk genangan, dan timbul darinya lumpur yang banyak, yang mungkin membuat orang terpeleset. Hujan sudah berhenti sekarang, maka ayo kita ke tepi laut untuk melihat matahari terbenam di ufuk barat."
+            },
+            {
+                id: 9,
+                title: "Hari Kelahiran",
+                arabicTitle: "الميلاد",
+                category: "Sekolah",
+                arabic: "دخل المفتش يوماً مكتب السنة الأولى في مدرسة من مدارس الأقاليم. فرأى تلميذاً صغيراً، سنه لا تزيد على ست سنوات وكان نشيطاً نظيفاً. فسأله عن اسمه ولقبه واسم أبيه ولقبه. فأجابه من فوره فانشرح المفتش، وسأله بعد ذلك عن عمره فقال الولد: لا أعرف. فاستغرب المفتش من عدم معرفته ذلك وأمر جميع الأولاد أن يحفظ كل واحد منهم ميلاده وقال إنه سيسألهم جميعاً في الغد. وبعد أن امتحنهم في دروسهم خرج من المكتب. وفي اليوم التالي حضر وسأل كثيرين منهم وكانت بيده ورقة فيها أسماؤهم وتواريخ ولادتهم حصلها من المدرسة، فأجابوا فسر المفتش لذلك.",
+                indonesian: "Suatu hari seorang inspektur masuk ke kelas satu di sebuah sekolah daerah. Dia melihat seorang murid kecil yang usianya tidak lebih dari enam tahun, dia aktif dan bersih. Inspektur bertanya tentang nama dan marganya serta nama ayah dan marganya. Murid itu menjawab dengan segera, maka inspektur itu senang. Dia bertanya setelah itu tentang umurnya, anak itu berkata: \"Saya tidak tahu.\" Inspektur heran karena ketidaktahuannya itu dan memerintahkan semua anak agar setiap orang dari mereka menghafal tanggal lahirnya, dan berkata bahwa dia akan bertanya kepada mereka semua besok. Setelah menguji mereka dalam pelajaran, dia keluar dari kelas. Pada hari berikutnya, dia datang dan bertanya kepada banyak dari mereka, sementara di tangannya ada kertas berisi nama-nama dan tanggal lahir mereka yang dia dapatkan dari sekolah. Mereka pun menjawab, maka inspektur itu gembira karenanya."
+            },
+            {
+                id: 10,
+                title: "Pohon Kurma",
+                arabicTitle: "النخلة",
+                category: "Alam",
+                arabic: "النخلة شجرة التمر ولها جذع مستقيم طويل وقد يكون قصيراً ولها رأس أخضر كبير فيه سعف عليه الخوص. وهي تنبت في كل أراضي بلادنا. وتثمر عادة مرة في السنة ثمراً يكون خلالاً ثم بلحاً أخضر في المبدأ ثم يتغير لونه شيئاً فشيئاً حتى يصير بسراً أحمر أو غير أحمر على حسب نوعه. وعند ذلك يصلح للأكل بعد أن يغسل بالماء لتنظيفه. وإذا بقي على النخلة تغير لونه وصار رطباً، فكان أحسن طعماً وألين للأسنان. وإذا ترك بعد ذلك على الشجرة وجف صار تمراً. ولا ينبغي للأولاد أن يأكلوا البلح وهو أخضر حتى لا يمرضوا.",
+                indonesian: "Pohon kurma adalah pohon penghasil kurma, ia memiliki batang lurus yang panjang dan terkadang pendek, serta memiliki mahkota hijau besar yang berisi pelepah berdaun janur. Ia tumbuh di seluruh tanah negeri kita dan biasanya berbuah sekali setahun. Buahnya mula-mula berupa 'khalal' lalu menjadi 'balah' (kurma muda) hijau pada awalnya, kemudian berubah warnanya sedikit demi sedikit hingga menjadi 'busr' merah atau warna lain tergantung jenisnya. Saat itu ia layak dimakan setelah dicuci dengan air untuk membersihkannya. Jika dibiarkan di pohon, warnanya berubah dan menjadi 'ruthab' (kurma basah) yang rasanya lebih enak dan lebih lunak untuk gigi. Jika dibiarkan setelah itu di pohon dan mengering, ia menjadi 'tamr' (kurma kering). Anak-anak sebaiknya tidak memakan kurma muda saat masih hijau agar tidak sakit."
+            },
+            {
+                id: 11,
+                title: "Anak dan Gajah",
+                arabicTitle: "الصبي والفيل",
+                category: "Moral",
+                arabic: "كان ولد ينظر الفيل في جنينة الحيوانات فمد يده إليه بتفاحة، فلما هم الفيل أن يأخذها قبض الصبي يده حتى لا يصل الفيل إلى التفاحة. ثم عاد ومد يده بالتفاحة مرة ثانية وعمل كما عمل أول مرة. فغضب الفيل ولكنه صبر على الصبي حتى سها عنه، ومد خرطومه وخطف طربوشه. فزعق الولد وبكى. فمد الفيل خرطومه بالطربوش، ولما هم الولد أن يأخذه قبض خرطومه وعمل معه كما عمل هو مع الفيل. فضحك الناس كثيراً منه. وبكى الولد على ضياع طربوشه. وعلم أن الذي يفعل الشر يلقى الشر.",
+                indonesian: "Seorang anak laki-laki sedang melihat gajah di kebun binatang, lalu dia mengulurkan tangannya membawa apel kepada gajah itu. Ketika gajah hendak mengambilnya, anak itu menarik tangannya agar gajah tidak bisa menjangkau apel itu. Kemudian dia kembali mengulurkan tangannya dengan apel untuk kedua kalinya dan melakukan seperti yang dia lakukan pertama kali. Gajah itu marah tetapi dia bersabar terhadap anak itu sampai anak itu lengah, lalu gajah mengulurkan belalainya dan menyambar tarbus (peci) anak itu. Anak itu berteriak dan menangis. Gajah itu mengulurkan belalainya membawa tarbus itu, dan ketika anak itu hendak mengambilnya, gajah menarik belalainya dan melakukan padanya seperti yang anak itu lakukan pada gajah. Orang-orang tertawa terbahak-bahak melihatnya, dan anak itu menangis karena kehilangan tarbusnya. Dia pun tahu bahwa barangsiapa berbuat jahat akan mendapat balasan kejahatan."
+            },
+            {
+                id: 12,
+                title: "Jendela",
+                arabicTitle: "الشباك",
+                category: "Benda",
+                arabic: "أنا الشباك أزين الجدار وأخفف ضرره. فهو يظلم الأماكن وأنا أنيرها. فتبصرون كل ما فيها وتقرأون ما تريدون. أصرف الهواء الفاسد الذي يضركم من الحجرات التي تجلسون فيها أو تنامون. وأفتح الطريق للهواء الجيد، فيدخل لكم وأنتم في أماكنكم ليحل محل الهواء الفاسد. وبمساعدة الزجاج أمنع عنكم الهواء البارد الضار في الشتاء والهواء الحار في الصيف. وأنصحكم ألا تقفوا بيني وبين نافذة أخرى في الصيف أو الشتاء، لئلا يمرضكم تيار الهواء المار بيني وبين هذه النافذة.",
+                indonesian: "Aku adalah jendela. Aku menghiasi dinding dan mengurangi dampak buruknya (kegelapan). Karena dinding membuat ruangan gelap sedangkan aku meneranginya, sehingga kalian bisa melihat segala isinya dan membaca apa yang kalian inginkan. Aku membuang udara kotor yang membahayakan kalian dari kamar tempat kalian duduk atau tidur. Dan aku membuka jalan bagi udara segar, agar masuk kepada kalian saat kalian berada di tempat kalian untuk menggantikan udara kotor. Dengan bantuan kaca, aku mencegah udara dingin yang berbahaya bagi kalian di musim dingin dan udara panas di musim panas. Aku menasihati kalian agar tidak berdiri di antara aku dan jendela lain di musim panas atau dingin, agar aliran udara yang lewat di antara aku dan jendela itu tidak membuat kalian sakit."
+            },
+            {
+                id: 13,
+                title: "Pergi ke Pulau Rawdah",
+                arabicTitle: "الذهاب إلى جزيرة الروضة",
+                category: "Petualangan",
+                arabic: "اتفق بعض الأولاد على مشاهدة مقياس الروضة واجتمعوا عند مصر القديمة وركبوا معدية توصلهم إلى الروضة لأنها جزيرة في النيل والماء حواليها من كل جهة فلا يمكنهم أن يمشوا إليها.\n\nسار المركب بالأولاد في وسط الماء وهو يميل بهم يميناً وشمالاً والأولاد ينظرون إلى الأشجار العالية على الشطين والزرع الأخضر والمراكب الكثيرة تجري على الماء بالقرب منهم حتى وصلوا إلى خليج.\n\nيدخل ماؤه مسافة طويلة في شرق الجزيرة ونزلوا على الخلاء ومشوا إلى الجنوب والأرض ينقص عرضها شيئاً فشيئاً حتى أمكنتهم رؤية النهر في الشرق والغرب والجنوب، لأن هذه الجهة شبه جزيرة وآخرها رأس بارز في الماء وفيه بناء كبناء البئر له سلالم كثيرة وحائطه مقسم إلى أذرع وقياريط يدل على ارتفاع الماء في النهر. وبعدها رجع الأولاد من رحلتهم مسرورين.",
+                indonesian: "Beberapa anak sepakat untuk melihat Nilometer (alat ukur nil) Rawdah. Mereka berkumpul di Kairo Lama dan menaiki perahu penyeberangan yang mengantarkan mereka ke Rawdah, karena itu adalah pulau di Sungai Nil dan air mengelilinginya dari segala sisi sehingga mereka tidak bisa berjalan kaki ke sana.\n\nPerahu membawa anak-anak itu di tengah air, bergoyang ke kanan dan ke kiri. Anak-anak melihat pepohonan tinggi di kedua tepi sungai, tanaman hijau, dan banyak perahu yang berlayar di air dekat mereka hingga mereka sampai di sebuah teluk (kanal).\n\nAirnya masuk cukup jauh di sisi timur pulau. Mereka turun di tanah lapang dan berjalan ke arah selatan. Tanah itu semakin menyempit sedikit demi sedikit hingga mereka bisa melihat sungai di timur, barat, dan selatan, karena sisi ini adalah semenanjung. Di ujungnya ada tanjung yang menonjol ke air, dan di sana ada bangunan seperti sumur yang memiliki banyak anak tangga. Dindingnya terbagi menjadi ukuran hasta dan qirat (inci) yang menunjukkan ketinggian air di sungai. Setelah itu, anak-anak pulang dari perjalanan mereka dengan gembira."
+            },
+            {
+                id: 14,
+                title: "Menjenguk Orang Sakit",
+                arabicTitle: "عيادة المريض",
+                category: "Akhlak",
+                arabic: "ابتدأ الأسبوع وحضر كل تلاميذ السنة الأولى في الدرس الأول يوم السبت إلا كاملاً وهو تلميذ مواظب ومجتهد. فسأل المدرس إخوانه عن سبب غيابه فلم يعرفوا السبب لأنهم لم يروه منذ خرجوا من المدرسة يوم الخميس الظهر. وفي آخر النهار اتفق بعض أصحابه على زيارته في داره بعد خروجهم من المدرسة.\n\nولما وصلوا إلى الدار قابلهم أخوه وأخبرهم أنه مريض وأن الطبيب عنده. فسألوه عن حاله فقال إنه لم يره لأن الطبيب أمر بعزله ومنع الاختلاط به لأنه مريض بالنزلة الوافدة وهي معدية. فكتبوا ورقة للمريض يدعون له فيها بالشفاء وانصرفوا.",
+                indonesian: "Minggu sekolah dimulai dan semua murid kelas satu hadir pada pelajaran pertama hari Sabtu kecuali Kamil, padahal dia murid yang rajin dan bersungguh-sungguh. Guru bertanya kepada teman-temannya tentang alasan ketidakhadirannya, namun mereka tidak tahu karena mereka tidak melihatnya sejak keluar sekolah hari Kamis siang. Di sore hari, beberapa temannya sepakat untuk mengunjunginya di rumahnya setelah pulang sekolah.\n\nKetika sampai di rumahnya, saudaranya menemui mereka dan memberitahu bahwa Kamil sakit dan dokter sedang bersamanya. Mereka bertanya tentang keadaannya, saudaranya berkata bahwa dia (saudaranya) belum melihatnya karena dokter memerintahkan isolasi dan melarang berinteraksi dengannya karena dia sakit flu yang menular. Maka mereka menulis secarik kertas untuk si sakit, mendoakan kesembuhannya, lalu mereka pulang."
+            },
+            {
+                id: 15,
+                title: "Singa dan Tikus",
+                arabicTitle: "الأسد والفأر",
+                category: "Fabel",
+                arabic: "كان أسد نائماً فأتى فأر ومشى على رأسه، فهب من النوم غضبان وقبض على الفأر ليقتله. فبكى الفأر وتضرع حتى رق له قلب الأسد وخلى عنه. وثاني يوم وقع الأسد في شرك نصبه له الصيادون، فصرخ وزأر حتى سمعه ذلك الفأر. فأسرع لمساعدته وقال له: لا تخف فأنا أخلصك. وشرع يقرض الحبل بأسنانه الحادة حتى قطعه وخرج الأسد سالماً. وشكره شكراً كثيراً ثم قال له: \"ما كنت أحسب أن حيواناً ضعيفاً مثلك يقدر على ما لا أقدر عليه أنا\". فأجابه الفأر: \"لا تحتقر من دونك فلكل شيء مزية\".",
+                indonesian: "Seekor singa sedang tidur, lalu datanglah seekor tikus dan berjalan di atas kepalanya. Singa itu terbangun dengan marah dan menangkap tikus itu untuk membunuhnya. Tikus itu menangis dan memohon hingga hati singa luluh dan melepaskannya. Keesokan harinya, singa itu jatuh ke dalam jaring yang dipasang pemburu. Dia berteriak dan mengaum hingga tikus itu mendengarnya. Tikus itu bergegas menolongnya dan berkata: \"Jangan takut, aku akan menyelamatkanmu.\" Dia mulai menggigit tali dengan giginya yang tajam hingga putus dan singa itu keluar dengan selamat. Singa berterima kasih banyak lalu berkata: \"Aku tidak menyangka hewan lemah sepertimu mampu melakukan apa yang tidak mampu kulakukan.\" Tikus menjawab: \"Jangan meremehkan orang yang di bawahmu, karena segala sesuatu memiliki kelebihan.\""
+            },
+            {
+                id: 16,
+                title: "Ulang Tahun Suad",
+                arabicTitle: "مولد سعاد",
+                category: "Keluarga",
+                arabic: "كان يوم الجمعة الذي فات بدأ السنة السابعة من عمر سعاد وهي بنت لطيفة جداً يعزها وأمها لأنها تطيعهما ولا تفعل شيئاً يكدرهما. ويحبها إخوتها وأخواتها لأنها تطيع كبيرهم وتشفق على صغيرهم. فلذلك اشترى لها كل واحد هدية من ماله الذي كان يدخره من راتبه ليقدمها لها يوم مولدها.\n\nولما كان يوم الجمعة يوم عطلة عامة جمع الوالد كل أفراد الأسرة في حجرة واحدة ثم قدم هديته لسعاد وتابعته الوالدة ثم الأولاد. وكان كل واحد يقبلها ويدعو الله أن يديم لها الصحة ويبارك في عمرها. وكانت هي تدعو لكل منهم أيضاً وعيناها مملوءتان بالدموع فرحاً بما رأت من حب أهلها.",
+                indonesian: "Hari Jumat lalu adalah awal tahun ketujuh usia Suad. Dia gadis yang sangat manis, ayah dan ibunya menyayanginya karena dia menaati mereka dan tidak melakukan sesuatu yang menyusahkan mereka. Saudara-saudaranya pun mencintainya karena dia menghormati yang tua dan menyayangi yang muda. Karena itu, setiap orang membelikan hadiah untuknya dari uang yang mereka tabung dari uang saku mereka untuk diberikan pada hari ulang tahunnya.\n\nKarena hari Jumat adalah hari libur umum, sang ayah mengumpulkan seluruh anggota keluarga di satu ruangan. Kemudian dia memberikan hadiahnya kepada Suad, diikuti oleh ibu, lalu anak-anak. Setiap orang menciumnya dan berdoa kepada Allah agar melimpahkan kesehatan dan memberkahi usianya. Suad pun mendoakan mereka semua, dan matanya penuh air mata karena gembira melihat cinta keluarganya."
+            },
+            {
+                id: 17,
+                title: "Hari Libur",
+                arabicTitle: "يوم العطلة",
+                category: "Dialog",
+                arabic: "خليل: صباح الخير يا علي.\nعلي: صبحك الله بالخير والسعادة.\nخليل: أين أخوك حامد فإني أرغب أن أتكلم معكما.\nعلي: أخي ليس هنا الآن فقد خرج من الدار قبلي وأتى المدرسة. ها هو ذا قادم. تعال يا حامد اسمع ما يريد خليل أن يقول.\nخليل: هل سمعتما أن يوم الاثنين المقبل يوم عطلة لنا احتفالاً بعودة المحمل من الحجاز؟\nحامد: نعم وقد عزمنا على أن نخرج إلى ظاهر المدينة للتنزه فنقضي كل النهار في الخلاء بين المزارع والترع وغيرها من المناظر السارة، وسنأخذ معنا خادمنا ليحمل طعامنا لأننا نود أن نمشي كثيراً.\nخليل: كنت أريد التكلم معكما في هذا الأمر، فهل تستحسنان أن أرافقكما؟\nعلي: نعم ويسرنا ذلك، فتفضل يا أخي بالحضور إلى دارنا صباح الاثنين لنركب الترام إلى الجيزة وهناك نتفق على ما نرى.",
+                indonesian: "Khalil: Selamat pagi, Ali.\nAli: Semoga Allah mempagikanmu dengan kebaikan dan kebahagiaan.\nKhalil: Di mana saudaramu Hamid? Aku ingin bicara dengan kalian berdua.\nAli: Saudaraku tidak ada di sini sekarang, dia keluar rumah sebelumku dan pergi ke sekolah. Nah, itu dia datang. Kemarilah Hamid, dengarkan apa yang ingin dikatakan Khalil.\nKhalil: Apakah kalian sudah mendengar bahwa hari Senin depan adalah hari libur bagi kita untuk merayakan kembalinya Mahmal dari Hijaz?\nHamid: Ya, dan kami sudah berencana pergi ke pinggiran kota untuk bertamasya. Kami akan menghabiskan sepanjang siang di tanah lapang antara sawah, sungai, dan pemandangan menyenangkan lainnya. Kami akan mengajak pelayan kami untuk membawa makanan karena kami ingin berjalan kaki jauh.\nKhalil: Aku tadi ingin membicarakan hal ini dengan kalian. Apakah kalian keberatan jika aku ikut?\nAli: Tentu, kami senang sekali. Silakan datang ke rumah kami Senin pagi agar kita bisa naik trem ke Giza, dan di sana kita sepakati apa yang akan kita lihat."
+            },
+            {
+                id: 18,
+                title: "Di Jalan Raya",
+                arabicTitle: "الطريق",
+                category: "Adab",
+                arabic: "خرج فؤاد من داره قاصداً مكتبة لشراء كتاب جديد في الجغرافية كان قد سمع به. واختار أن يذهب ماشياً ليتدفأ لأن اليوم كان شديد البرد. وكان في أثناء سيره يلتزم الرصيف الأيمن من الطريق ولا يعبر الشارع إلا إذا أمن الخطر. وكان ينظر كل شيء في طريقه من غير أن يحتك كتفه بالمارين مع سرعة في مشيته وزحام في الطريق.\n\nوكان إذا رأى دكاناً كبيراً لا يعرفه وقف برهة ليقرأ اسم التاجر وليعرف ما عنده من البضاعة، حتى إذا احتاج إلى شيء فيما بعد قصد الدكان الذي يبيعه من غير أن يسأل. وسار كذلك إلى أن وصل إلى المكتبة فاشترى الكتاب وعاد إلى داره.",
+                indonesian: "Fuad keluar dari rumahnya menuju toko buku untuk membeli buku geografi baru yang pernah dia dengar. Dia memilih pergi berjalan kaki untuk menghangatkan badan karena hari itu sangat dingin. Selama berjalan, dia tetap berada di trotoar kanan jalan dan tidak menyeberang jalan kecuali jika aman dari bahaya. Dia melihat segala sesuatu di jalannya tanpa bahunya bersenggolan dengan pejalan kaki lain, meskipun dia berjalan cepat dan jalanan ramai.\n\nJika dia melihat toko besar yang tidak dia kenal, dia berhenti sejenak untuk membaca nama pedagang dan mengetahui barang apa yang ada di sana, sehingga jika dia membutuhkan sesuatu di kemudian hari, dia bisa menuju toko yang menjualnya tanpa harus bertanya. Dia berjalan demikian hingga sampai di toko buku, lalu membeli buku itu dan kembali ke rumahnya."
+            },
+            {
+                id: 19,
+                title: "Anak dan Lebah",
+                arabicTitle: "الطفل والنحلة",
+                category: "Fabel",
+                arabic: "الطفل: أيتها النحلة الجميلة أراك تطيرين من زهرة إلى أخرى طول النهار من غير أن تفكري في شيء غير اللعب. يا ليتني مثلك بدون شغل فألعب طول النهار كما تلعبين.\n\nالنحلة: غلطت أيها الطفل، لأنني أطير من زهرة إلى زهرة لأعمل عملاً ولست بدون شغل كما تقول.\n\nالطفل: ما شغلك؟ وإذا كنت تشتغلين طول النهار فكيف لا تفكرين في الراحة؟\n\nالنحلة: إني أجمع عسلاً لأتغذى منه أيام الشتاء وشمعاً لأبني به بيتي قبل أن تمضي أيام الصيف وتقل حرارة الشمس فتموت الأزهار. وإذا استرحت الآن ضاعت مني فرصة جمع القوت فأموت في الشتاء جوعاً. فاتخذني مثالاً لك واجمع في صغرك ما ينفعك في كبرك.",
+                indonesian: "Anak: Wahai lebah yang cantik, aku melihatmu terbang dari satu bunga ke bunga lain sepanjang hari tanpa memikirkan apa pun selain bermain. Duhai, seandainya aku sepertimu tanpa pekerjaan, aku bisa bermain sepanjang hari seperti kau bermain.\n\nLebah: Kau salah wahai Anak, karena aku terbang dari bunga ke bunga untuk bekerja, bukan menganggur seperti katamu.\n\nAnak: Apa pekerjaanmu? Dan jika kau bekerja sepanjang hari, kenapa kau tidak memikirkan istirahat?\n\nLebah: Aku mengumpulkan madu untuk kumakan di hari-hari musim dingin dan lilin untuk membangun rumahku sebelum hari-hari musim panas berlalu dan panas matahari berkurang lalu bunga-bunga mati. Jika aku istirahat sekarang, hilanglah kesempatanku mengumpulkan makanan, lalu aku akan mati kelaparan di musim dingin. Maka jadikanlah aku teladan bagimu, dan kumpulkanlah di masa kecilmu apa yang bermanfaat bagimu di masa tuamu."
+            },
+            {
+                id: 20,
+                title: "Memancing Ikan",
+                arabicTitle: "صيد السمك",
+                category: "Hobi",
+                arabic: "ذهب محمود يوم الجمعة الماضي إلى بحيرة ليصيد سمكاً. وكانت معه قصبة الصيد مربوطاً في طرفها حبل طويل دقيق متين. وفي طرف هذا الحبل شص وفي وسطه عوامة. فلما وصل إلى البحيرة جلس على حجر كبير على ضفتها وأخرج الطعم من سلته ووضعه على الشص، ثم وقف ومد القصبة وأدلى الحبل في الماء.\n\nوبعد لحظة أحس بجذبة في القصبة فأسرع بإخراج الشص من الماء فإذا به سمكة كبيرة لتأكل الطعم فصيدت. فسر محمود من ذلك ومكث زمناً طويلاً اصطاد فيه سمكاً كثيراً ثم عاد إلى داره بأكلة عظيمة من السمك.",
+                indonesian: "Mahmoud pergi pada hari Jumat yang lalu ke sebuah danau untuk memancing ikan. Dia membawa joran pancing yang di ujungnya terikat tali panjang, halus, namun kuat. Di ujung tali ini ada kail dan di tengahnya ada pelampung. Ketika sampai di danau, dia duduk di atas batu besar di tepinya, mengeluarkan umpan dari keranjangnya dan memasangnya di kail, lalu dia berdiri, mengulurkan joran, dan melemparkan tali ke air.\n\nSesaat kemudian, dia merasakan tarikan pada jorannya, maka dia segera menarik kail dari air, ternyata ada ikan besar yang hendak memakan umpan itu lalu tertangkap. Mahmoud gembira dengan hal itu dan dia berdiam di sana cukup lama, di mana dia menangkap banyak ikan, kemudian dia pulang ke rumahnya dengan membawa santapan ikan yang istimewa."
+            }
+        ];
+
+        // --- State Management ---
+        let activeCategory = 'Semua';
+        let searchQuery = '';
+        let isTranslationVisible = false;
+
+        // --- Helper Functions ---
+        function getCategoryColor(cat) {
+            switch(cat) {
+                case 'Hewan': return 'bg-orange-100 text-orange-700 border-orange-200';
+                case 'Alam': return 'bg-emerald-100 text-emerald-700 border-emerald-200';
+                case 'Akhlak': return 'bg-purple-100 text-purple-700 border-purple-200';
+                case 'Adab': return 'bg-blue-100 text-blue-700 border-blue-200';
+                case 'Fabel': return 'bg-amber-100 text-amber-700 border-amber-200';
+                default: return 'bg-gray-100 text-gray-700 border-gray-200';
+            }
+        }
+
+        // --- Init Functions ---
+        window.addEventListener('load', () => {
+            // Hide Loader
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 500);
+
+            // Initialize UI
+            renderFilters();
+            renderStories();
+        });
+
+        // --- Filter Logic ---
+        function renderFilters() {
+            const categories = ['Semua', ...new Set(stories.map(s => s.category))];
+            const container = document.getElementById('filter-container');
+            
+            container.innerHTML = categories.map(cat => `
+                <button 
+                    onclick="setFilter('${cat}')"
+                    class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide whitespace-nowrap transition-all border ${
+                        activeCategory === cat 
+                        ? 'bg-ink-green text-white border-ink-green shadow-md' 
+                        : 'bg-white text-gray-500 border-gray-200 hover:border-gold-accent hover:text-gold-accent'
+                    }">
+                    ${cat}
+                </button>
+            `).join('');
+        }
+
+        function setFilter(cat) {
+            activeCategory = cat;
+            renderFilters();
+            renderStories();
+        }
+
+        // --- Search Logic ---
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase();
+            renderStories();
+        });
+
+        // --- Render Logic ---
+        function renderStories() {
+            const grid = document.getElementById('stories-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            const filtered = stories.filter(s => {
+                const matchesCategory = activeCategory === 'Semua' || s.category === activeCategory;
+                const matchesSearch = s.title.toLowerCase().includes(searchQuery) || 
+                                      s.arabicTitle.includes(searchQuery) || 
+                                      s.indonesian.toLowerCase().includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+            } else {
+                grid.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+            
+                grid.innerHTML = filtered.map((story, index) => `
+                    <div onclick="openReader(${story.id})" class="group bg-white rounded-2xl overflow-hidden border border-paper-200 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer relative flex flex-col h-full">
+                        <div class="h-1.5 bg-ink-green w-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                        
+                        <div class="p-6 flex-grow flex flex-col items-center text-center relative overflow-hidden">
+                            <div class="absolute -right-4 -top-4 text-[9rem] leading-none font-arabic-title text-paper-100 select-none pointer-events-none opacity-60 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                                ${story.arabicTitle.charAt(0)}
+                            </div>
+                            
+                            <span class="inline-block px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-widest mb-5 z-10 border ${getCategoryColor(story.category)}">
+                                ${story.category}
+                            </span>
+                            
+                            <h3 class="text-3xl font-bold text-ink-green font-arabic-title mb-2 z-10 group-hover:text-gold-accent transition-colors leading-normal px-2">
+                                ${story.arabicTitle}
+                            </h3>
+                            
+                            <div class="w-8 h-0.5 bg-gold-accent/30 my-3 group-hover:w-16 transition-all duration-300"></div>
+                            
+                            <p class="text-charcoal font-medium text-sm z-10 line-clamp-2">${story.title}</p>
+                        </div>
+                        
+                        <div class="px-6 py-4 bg-paper-50 border-t border-paper-100 flex justify-between items-center group-hover:bg-ink-green group-hover:text-white transition-colors duration-300">
+                            <span class="text-[10px] font-bold uppercase tracking-widest">Baca Kisah</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('reader-modal');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modalPanel = document.getElementById('modal-panel');
+        const toggleDot = document.getElementById('toggle-dot');
+        const toggleBg = document.getElementById('toggle-bg');
+        const transContainer = document.getElementById('translation-container');
+        let currentStoryArabic = "";
+
+        function openReader(id) {
+            const story = stories.find(s => s.id === id);
+            if (!story) return;
+
+            // Set Content
+            document.getElementById('modal-story-title-header').innerText = story.title;
+            document.getElementById('modal-story-subtitle').innerText = story.category;
+            document.getElementById('modal-arabic-title').innerText = story.arabicTitle;
+            document.getElementById('modal-arabic-text').innerText = story.arabic;
+            document.getElementById('modal-indo-text').innerText = story.indonesian;
+            currentStoryArabic = story.arabic; // Store for copy function
+
+            // Reset Translation State
+            isTranslationVisible = false;
+            updateTranslationUI();
+
+            // Show Modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent body scroll
+
+            // Animate In
+            requestAnimationFrame(() => {
+                modalBackdrop.classList.remove('opacity-0');
+                modalPanel.classList.remove('opacity-0', 'scale-95');
+                modalPanel.classList.add('opacity-100', 'scale-100');
+            });
+        }
+
+        function closeModal() {
+            // Animate Out
+            modalBackdrop.classList.add('opacity-0');
+            modalPanel.classList.remove('opacity-100', 'scale-100');
+            modalPanel.classList.add('opacity-0', 'scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        function toggleTranslation() {
+            isTranslationVisible = !isTranslationVisible;
+            updateTranslationUI();
+        }
+
+        function updateTranslationUI() {
+            if (isTranslationVisible) {
+                // Show
+                transContainer.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    transContainer.classList.remove('opacity-0', 'translate-y-4');
+                });
+                
+                // Toggle Switch Style
+                toggleBg.classList.replace('bg-gray-200', 'bg-ink-green');
+                toggleDot.classList.add('translate-x-5');
+            } else {
+                // Hide
+                transContainer.classList.add('opacity-0', 'translate-y-4');
+                setTimeout(() => {
+                    transContainer.classList.add('hidden');
+                }, 500);
+
+                // Toggle Switch Style
+                toggleBg.classList.replace('bg-ink-green', 'bg-gray-200');
+                toggleDot.classList.remove('translate-x-5');
+            }
+        }
+
+        // Copy Function
+        function copyArabicText() {
+            navigator.clipboard.writeText(currentStoryArabic).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.remove('opacity-0', 'translate-y-10');
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'translate-y-10');
+                }, 2000);
+            });
+        }
+
+        // Close on Backdrop Click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modalBackdrop || e.target.closest('#modal-backdrop')) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape Key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape" && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
